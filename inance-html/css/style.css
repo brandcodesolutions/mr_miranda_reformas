@@ -92,7 +92,40 @@ a:focus {
   text-decoration: none;
 }
 
+/* Regras de estilo com alta especificidade para garantir aplicação */
+input {
+  color: #000 !important; /* Força a cor do texto a ser preta */
+  background-color: #fff !important; /* Garante que o fundo dos campos seja branco */
+  border: 1px solid #ccc !important; /* Define a borda dos campos */
+  padding: 8px !important; /* Adiciona algum espaço interno nos campos */
+  font-size: 16px !important; /* Define o tamanho da fonte */
+  border-radius: 4px !important; /* Adiciona bordas arredondadas */
+}
+
+
+
+
+/* Verifique se os campos não têm a propriedade 'pointer-events' configurada como 'none' */
+input, button {
+  pointer-events: auto;
+}
+
+/* Verifique se os campos de entrada não estão com 'display: none' ou 'visibility: hidden' */
+input, button {
+  display: block; /* ou 'inline-block' dependendo do layout */
+  visibility: visible;
+}
+
+/* Verifique se não há um z-index que esteja colocando um elemento sobre o formulário */
+.contact_section {
+  position: relative;
+  z-index: 1;
+}
+
+
+
 /*header section*/
+
 .hero_area {
   position: relative;
   background-color: #f3f3f3;
@@ -438,15 +471,15 @@ a:focus {
   font-family: 'Merriweather Sans', sans-serif;
   text-transform: uppercase;
   padding: 10px 45px;
-  background-color: #0355cc;
-  border: 1px solid #0355cc;
+  background-color: #269F1C;
+  border: 1px solid #269F1C;
   border-radius: 2px;
   color: #ffffff;
 }
 
 .about_section .detail-box a:hover {
   background-color: transparent;
-  color: #0355cc;
+  color: #269F1C;
 }
 
 .about_section .img-box img {
@@ -470,7 +503,7 @@ a:focus {
 .professional_section .detail-box h2 {
   text-transform: uppercase;
   font-weight: bold;
-  color: #0355cc;
+  color: #269F1C;
 }
 
 .professional_section .detail-box p {
@@ -483,15 +516,15 @@ a:focus {
   font-family: 'Merriweather Sans', sans-serif;
   text-transform: uppercase;
   padding: 10px 45px;
-  background-color: #ff8a1d;
-  border: 1px solid #ff8a1d;
+  background-color: #269F1C;
+  border: 1px solid #269F1C;
   border-radius: 2px;
   color: #ffffff;
 }
 
 .professional_section .detail-box a:hover {
   background-color: transparent;
-  color: #ff8a1d;
+  color: #269F1C;
 }
 
 .service_section {
@@ -545,6 +578,7 @@ a:focus {
 
 .service_section .box .detail-box h5 {
   font-weight: bold;
+  color: #269F1C;
 }
 
 .service_section .box .detail-box p {
@@ -552,7 +586,11 @@ a:focus {
 }
 
 .service_section .box:hover {
-  background-color: #ff8a1d;
+  background-color: #269F1C;
+  color: #ffffff;
+}
+
+.service_section .box:hover h5{
   color: #ffffff;
 }
 
@@ -576,15 +614,15 @@ a:focus {
   font-family: 'Merriweather Sans', sans-serif;
   text-transform: uppercase;
   padding: 10px 45px;
-  background-color: #0355cc;
-  border: 1px solid #0355cc;
+  background-color: #269F1C;
+  border: 1px solid #269F1C;
   border-radius: 0;
   color: #ffffff;
 }
 
 .service_section .btn-box a:hover {
   background-color: transparent;
-  color: #0355cc;
+  color: #269F1C;
 }
 
 .client_section .heading_container {
@@ -659,7 +697,7 @@ a:focus {
 .client_section .owl-carousel .owl-nav button {
   width: 50px;
   height: 50px;
-  background-color: #0355cc;
+  background-color: #269F1C;
   outline: none;
   margin: 0 20px;
   color: #ffffff;
@@ -708,8 +746,8 @@ a:focus {
   font-family: 'Merriweather Sans', sans-serif;
   text-transform: uppercase;
   padding: 10px 55px;
-  background-color: #0355cc;
-  border: 1px solid #0355cc;
+  background-color: #269F1C;
+  border: 1px solid #269F1C;
   border-radius: 0;
   color: #ffffff;
   margin-top: 15px;
@@ -717,7 +755,7 @@ a:focus {
 
 .contact_section button:hover {
   background-color: transparent;
-  color: #0355cc;
+  color: #269F1C;
 }
 
 .contact_section .map_container {
@@ -728,9 +766,67 @@ a:focus {
   height: 100%;
 }
 
+.map-container {
+  position: relative;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  position: relative; /* Ensure the map container is positioned correctly */
+}
+
+.map-image-desktop,
+.map-image-mobile {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.map-image-desktop img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Ensure the image covers the area */
+  object-position: center top; /* Adjust the position of the image */
+  position: relative;
+  top: -20px; /* Adjust this value as needed */
+}
+
+.map-image-mobile img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Default to desktop image */
+.map-image-desktop {
+  display: block;
+}
+
+/* Hide mobile image by default */
+.map-image-mobile {
+  display: none;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .map-image-desktop {
+    display: none;
+  }
+
+  .map-image-mobile {
+    display: block;
+  }
+}
+
+
 .info_section {
   padding: 75px 0;
-  background-color: #0a0f43;
+  background-color: #062e10;
   text-align: center;
   color: #fff;
 }
@@ -756,13 +852,12 @@ a:focus {
 }
 
 .info_section .social-box .box {
-  background-color: #ffffff;
   padding: 5px 15px;
 }
 
 .info_section a {
   margin: 0 5px;
-  color: #0355cc;
+  color: #269F1C;
 }
 
 .info_section a i {
@@ -770,7 +865,7 @@ a:focus {
 }
 
 .info_section a:hover {
-  color: #ff8a1d;
+  color: #ffffff;
 }
 
 .info_items a {
@@ -800,7 +895,7 @@ a:focus {
   background-position: center;
   text-align: center;
   line-height: 80px;
-  background-color: #0355cc;
+  background-color: #269F1C;
   color: #ffffff;
 }
 
@@ -808,15 +903,19 @@ a:focus {
   font-size: 24px;
 }
 
-.info_items .item p {
+/*.info_items .item p {
   margin-top: 25px;
-  color: #fff;
+  color: #269F1C;
   margin-bottom: 0;
-  background-color: #0a0f43;
+  background-color: #ffffff;
+}*/
+
+.info_items .item:hover .img-box {
+  background-color: #ffffff;
 }
 
 .info_items .item:hover .img-box {
-  background-color: #ff8a1d;
+ color: #269F1C;
 }
 
 .info_items {
@@ -837,7 +936,7 @@ a:focus {
 
 /* footer section*/
 .footer_section {
-  background-color: #0a0f43;
+  background-color: #062e10;
 }
 
 .footer_section p {
