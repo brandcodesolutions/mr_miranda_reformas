@@ -40,21 +40,5 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita o envio padrão do formulário
 
-    var name = encodeURIComponent(document.getElementById('name').value);
-    var phone = encodeURIComponent(document.getElementById('phone').value);
-    var email = encodeURIComponent(document.getElementById('email').value);
-    var message = encodeURIComponent(document.getElementById('message').value);
-
-    var whatsappNumber = '5518998037956'; // Número do WhatsApp no formato internacional
-    var whatsappMessage = `Nome: ${name}%0ATelefone: ${phone}%0AE-mail: ${email}%0AMensagem: ${message}`;
-
-    var whatsappURL = `https://wa.me/5518998037956`;
-
-    window.open(whatsappURL, 'https://wa.me/5518998037956_blank'); // Abre o link do WhatsApp em uma nova aba
-  });
-</script>
 

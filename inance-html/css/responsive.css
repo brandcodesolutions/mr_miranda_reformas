@@ -72,7 +72,7 @@
 
 
     .professional_section .img-box {
-        display: none;
+        display: relative;
     }
 
     .contact_section form {
